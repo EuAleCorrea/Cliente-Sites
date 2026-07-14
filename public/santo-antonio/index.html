@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurante e Churrascaria Santo Antônio — A primeira churrascaria do Brasil · Porto Alegre</title>
+<meta name="description" content="Desde 1935, a primeira churrascaria do Brasil. Filés cortados à colher, churrasco de tradição e massas italianas no coração de Moinhos de Vento, Porto Alegre. Reserve pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1512; --ink-2:#4a3f38; --cream:#f5efe6; --cream-2:#ece3d5;
+    --wine:#6e1f22; --wine-2:#8a2a2d; --gold:#b8863b; --gold-lt:#d6ac68;
+    --char:#241d19; --line:#e0d6c6; --white:#fff;
+    --r:14px; --shadow:0 14px 46px rgba(26,21,18,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Playfair Display',serif;font-weight:600;line-height:1.12;letter-spacing:-.005em}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--wine);color:#fff;font-weight:600;font-size:15px;padding:15px 28px;border-radius:999px;transition:.2s;border:1px solid var(--wine)}
+  .btn:hover{background:var(--wine-2);transform:translateY(-1px)}
+  .btn.gold{background:var(--gold);border-color:var(--gold);color:#1f1608}
+  .btn.gold:hover{filter:brightness(1.07)}
+  .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+  .btn.ghost:hover{background:rgba(255,255,255,.1)}
+  .kicker{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(36,29,25,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .nav .brand{font-family:'Playfair Display',serif;font-size:21px;font-weight:600;color:#fff;letter-spacing:.02em}
+  .nav .brand small{display:block;font-family:'Inter';font-size:9.5px;letter-spacing:.32em;color:var(--gold-lt);text-transform:uppercase;font-weight:500;margin-top:1px}
+  .nav-links{display:flex;gap:30px;font-size:14px;font-weight:500;color:#e8dfd2}
+  .nav-links a:hover{color:var(--gold-lt)}
+  .nav .btn{padding:11px 22px;font-size:14px}
+  @media(max-width:880px){.nav-links{display:none}}
+
+  /* HERO */
+  .hero{position:relative;min-height:88vh;display:flex;align-items:center;color:#fff;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:
+    linear-gradient(180deg,rgba(20,15,12,.62) 0%,rgba(20,15,12,.5) 40%,rgba(20,15,12,.86) 100%),
+    url('https://static.wixstatic.com/media/0e9397_1090b5a2be3c438db782a034f480eb15~mv2.jpg/v1/fill/w_1400,h_1000,al_c,q_90,enc_avif,quality_auto/0e9397_1090b5a2be3c438db782a034f480eb15~mv2.jpg') center/cover no-repeat}
+  .hero-in{position:relative;padding:60px 0}
+  .hero .tag{display:inline-flex;align-items:center;gap:8px;background:rgba(184,134,59,.16);border:1px solid rgba(214,172,104,.4);color:var(--gold-lt);padding:7px 16px;border-radius:999px;font-size:12.5px;font-weight:600;letter-spacing:.04em;margin-bottom:22px}
+  .hero h1{font-size:clamp(38px,6vw,72px);font-weight:700;max-width:14ch}
+  .hero h1 em{font-style:italic;color:var(--gold-lt)}
+  .hero p.lead{font-size:19px;color:#e6dccd;margin:22px 0 32px;max-width:44ch}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero-rev{margin-top:26px;display:flex;align-items:center;gap:12px;font-size:14px;color:#d8cdbd}
+  .stars{color:var(--gold-lt);font-size:16px;letter-spacing:2px}
+  @media(max-width:880px){.hero{min-height:80vh}}
+
+  /* STRIP tradição */
+  .strip{background:var(--char);color:#e8dfd2;border-bottom:1px solid rgba(255,255,255,.06)}
+  .strip-in{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:30px 0;text-align:center}
+  .strip b{display:block;font-family:'Playfair Display',serif;font-size:30px;color:var(--gold-lt);line-height:1}
+  .strip span{font-size:12.5px;color:#b8ab99;display:block;margin-top:7px;letter-spacing:.02em}
+  @media(max-width:680px){.strip-in{grid-template-columns:repeat(2,1fr);gap:22px}}
+
+  section{padding:88px 0}
+  .sec-head{max-width:660px;margin-bottom:46px}
+  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+  .sec-head h2{font-size:clamp(28px,3.6vw,44px);margin:14px 0 0}
+  .sec-head p{color:var(--ink-2);margin-top:15px;font-size:17px}
+
+  /* HISTÓRIA */
+  .story{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+  .story-media{position:relative}
+  .story-media img{width:100%;border-radius:18px;box-shadow:var(--shadow);aspect-ratio:3/4;object-fit:cover}
+  .story-media .seal{position:absolute;right:-16px;bottom:-16px;background:var(--wine);color:#fff;border-radius:50%;width:132px;height:132px;display:grid;place-content:center;text-align:center;box-shadow:var(--shadow);border:3px solid var(--gold-lt)}
+  .story-media .seal b{font-family:'Playfair Display',serif;font-size:30px;line-height:1;color:var(--gold-lt)}
+  .story-media .seal span{font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-top:5px}
+  .story h2{font-size:clamp(26px,3.4vw,40px)}
+  .story p{color:var(--ink-2);margin-top:18px;font-size:16.5px}
+  .story .quote{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:var(--wine);border-left:3px solid var(--gold);padding-left:18px;margin-top:24px}
+  @media(max-width:880px){.story{grid-template-columns:1fr;gap:56px}.story-media .seal{width:104px;height:104px}}
+
+  /* ESPECIALIDADES */
+  .specs{background:var(--cream-2)}
+  .specs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .spec{background:var(--white);border-radius:var(--r);overflow:hidden;box-shadow:0 4px 18px rgba(26,21,18,.06);transition:.2s}
+  .spec:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .spec img{width:100%;height:210px;object-fit:cover}
+  .spec .body{padding:24px}
+  .spec h3{font-size:22px}
+  .spec p{color:var(--ink-2);font-size:14.5px;margin-top:9px}
+  @media(max-width:880px){.specs-grid{grid-template-columns:1fr}}
+
+  /* GALERIA */
+  .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .gal img{width:100%;height:100%;aspect-ratio:1;object-fit:cover;border-radius:10px}
+  .gal .tall{grid-row:span 2;aspect-ratio:1/2}
+  @media(max-width:680px){.gal{grid-template-columns:repeat(2,1fr)}.gal .tall{grid-row:auto;aspect-ratio:1}}
+
+  /* VISITE */
+  .visit{background:var(--char);color:#e8dfd2}
+  .visit-in{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+  .visit h2{color:#fff;font-size:clamp(26px,3.4vw,40px)}
+  .visit .rows{margin-top:26px;display:flex;flex-direction:column;gap:20px}
+  .visit .row span{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-lt);font-weight:600;margin-bottom:5px}
+  .visit .row p{font-size:16px;color:#e8dfd2}
+  .visit .map iframe{width:100%;height:320px;border:0;border-radius:16px;filter:grayscale(.25) contrast(1.05)}
+  @media(max-width:880px){.visit-in{grid-template-columns:1fr;gap:34px}}
+
+  /* CTA final */
+  .final{background:var(--wine);color:#fff;text-align:center}
+  .final h2{font-size:clamp(30px,4.4vw,50px);max-width:16ch;margin:0 auto}
+  .final h2 em{font-style:italic;color:var(--gold-lt)}
+  .final p{color:#f0d9d9;font-size:18px;margin:18px auto 30px;max-width:46ch}
+
+  footer{background:#140f0c;color:#a99c8b;padding:54px 0 28px;font-size:13.5px}
+  .foot-in{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+  .foot-brand{font-family:'Playfair Display',serif;font-size:22px;color:#fff}
+  .foot-brand small{display:block;font-family:'Inter';font-size:9.5px;letter-spacing:.3em;color:var(--gold-lt);text-transform:uppercase;margin-top:2px}
+  .foot-soc{display:flex;gap:13px;margin-top:16px}
+  .foot-soc a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;transition:.2s;color:#e8dfd2}
+  .foot-soc a:hover{background:var(--wine)}
+  .foot-col p{margin-bottom:6px}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:36px;padding-top:20px;opacity:.7;font-size:12px;text-align:center}
+
+  .float{position:fixed;right:20px;bottom:20px;z-index:60;background:#25d366;color:#fff;font-weight:600;padding:14px 22px;border-radius:999px;box-shadow:0 10px 30px rgba(37,211,102,.42);display:flex;gap:9px;align-items:center;font-size:15px}
+  .float:hover{transform:translateY(-2px)}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <div class="brand">Santo Antônio<small>Churrascaria desde 1935</small></div>
+    <nav class="nav-links">
+      <a href="#historia">Nossa história</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#visite">Visite</a>
+    </nav>
+    <a class="btn gold" href="https://wa.me/555132223130?text=Olá!%20Vim%20pelo%20site%20e%20quero%20reservar%20uma%20mesa%20no%20Santo%20Antônio.">Reservar mesa</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-in">
+    <span class="tag">◆ A primeira churrascaria do Brasil</span>
+    <h1>Uma tradição que atravessa <em>cinco gerações</em>.</h1>
+    <p class="lead">Desde 1935, a família Aita serve o melhor da carne no coração de Moinhos de Vento. Filés cortados à colher, churrasco de origem e massas italianas.</p>
+    <div class="hero-cta">
+      <a class="btn gold" href="https://wa.me/555132223130?text=Olá!%20Vim%20pelo%20site%20e%20quero%20reservar%20uma%20mesa%20no%20Santo%20Antônio.">Reservar pelo WhatsApp</a>
+      <a class="btn ghost" href="#especialidades">Ver especialidades</a>
+    </div>
+    <div class="hero-rev"><span class="stars">★★★★★</span> 4,7 · mais de 6.200 avaliações no Google</div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="wrap strip-in">
+    <div><b>1935</b><span>Ano de fundação</span></div>
+    <div><b>5ª</b><span>Geração da família Aita</span></div>
+    <div><b>90</b><span>Anos de tradição</span></div>
+    <div><b>4,7★</b><span>+6.200 avaliações</span></div>
+  </div>
+</div>
+
+<!-- HISTÓRIA -->
+<section id="historia">
+  <div class="wrap story">
+    <div class="story-media">
+      <img src="https://static.wixstatic.com/media/0e9397_fb6c23b9d63f427aa1499358a64455dd~mv2.jpg/v1/fill/w_720,h_960,al_c,q_90,enc_avif,quality_auto/0e9397_fb6c23b9d63f427aa1499358a64455dd~mv2.jpg" alt="Filé Santo Antônio">
+      <div class="seal"><div><b>90</b><span>anos</span></div></div>
+    </div>
+    <div>
+      <span class="kicker">Nossa história</span>
+      <h2>O sabor que marcou a gastronomia do Rio Grande</h2>
+      <p>Desde 1935, a família Aita vem cultivando a tradição de bem servir — um legado transmitido de geração em geração, hoje em sua quinta etapa. Quando o assunto é tradição gastronômica gaúcha, é difícil comparar ao Santo Antônio.</p>
+      <p>Registrada como a <strong>primeira churrascaria do Brasil</strong>, a casa uniu ao longo de nove décadas o churrasco de origem, os filés cortados à colher e a herança das massas italianas.</p>
+      <p class="quote">“Carne espetacular. Garçom Aroldo nos atendeu com êxito nota 1000!” — avaliação no Google</p>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section id="especialidades" class="specs">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="kicker">O que servimos</span>
+      <h2>Três paixões numa só casa</h2>
+    </div>
+    <div class="specs-grid">
+      <div class="spec">
+        <img src="https://static.wixstatic.com/media/0e9397_5a791986b6d1458fbf1b81988757a533~mv2.jpg/v1/fill/w_620,h_420,al_c,q_90,enc_avif,quality_auto/0e9397_5a791986b6d1458fbf1b81988757a533~mv2.jpg" alt="Filés">
+        <div class="body"><h3>Filés</h3><p>Nossos filés são cortados à colher — maciez que virou marca registrada da casa por gerações.</p></div>
+      </div>
+      <div class="spec">
+        <img src="https://static.wixstatic.com/media/0e9397_0133acfd03dd4ea6af9b8166e6bc2f7d~mv2.jpg/v1/fill/w_620,h_420,al_c,q_90,enc_avif,quality_auto/0e9397_0133acfd03dd4ea6af9b8166e6bc2f7d~mv2.jpg" alt="Churrasco">
+        <div class="body"><h3>Churrasco</h3><p>A primeira churrascaria do Brasil. Cortes premium no ponto certo, na tradição que nos fundou em 1935.</p></div>
+      </div>
+      <div class="spec">
+        <img src="https://static.wixstatic.com/media/0e9397_1aa89d8e2aaf444e93c61a3cab0174f5~mv2.jpg/v1/fill/w_620,h_420,al_c,q_90,enc_avif,quality_auto/0e9397_1aa89d8e2aaf444e93c61a3cab0174f5~mv2.jpg" alt="Massas">
+        <div class="body"><h3>Massas</h3><p>A herança italiana da família, com o tempero e o cuidado que só a tradição sabe entregar.</p></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a class="btn" href="https://www.restaurantesantoantonio.com.br/cardapio">Ver cardápio completo</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria">
+  <div class="wrap">
+    <div class="sec-head center"><span class="kicker">Galeria</span><h2>Um convite à mesa</h2></div>
+    <div class="gal">
+      <img class="tall" src="https://static.wixstatic.com/media/0e9397_152040453f4e4c5085d3088d2bfd104e~mv2.jpg/v1/fill/w_480,h_960,al_c,q_90,enc_avif,quality_auto/0e9397_152040453f4e4c5085d3088d2bfd104e~mv2.jpg" alt="Drinks">
+      <img src="https://static.wixstatic.com/media/0e9397_f345682a43414f9eaa2d5548a64def30~mv2.jpg/v1/fill/w_480,h_480,al_c,q_90,enc_avif,quality_auto/0e9397_f345682a43414f9eaa2d5548a64def30~mv2.jpg" alt="Prato executivo">
+      <img src="https://static.wixstatic.com/media/0e9397_43d225207a3344c9a3a6b9ebb3773fc2~mv2.jpg/v1/fill/w_480,h_480,al_c,q_90,enc_avif,quality_auto/0e9397_43d225207a3344c9a3a6b9ebb3773fc2~mv2.jpg" alt="Ambiente">
+      <img class="tall" src="https://static.wixstatic.com/media/0e9397_fce8cacef4d24d95b1576f5c4d846cc6~mv2.jpg/v1/fill/w_480,h_960,al_c,q_90,enc_avif,quality_auto/0e9397_fce8cacef4d24d95b1576f5c4d846cc6~mv2.jpg" alt="Filé">
+      <img src="https://static.wixstatic.com/media/0e9397_a3139071113041f38c7863f9a4d9ce0c~mv2.jpg/v1/fill/w_480,h_480,al_c,q_90,enc_avif,quality_auto/0e9397_a3139071113041f38c7863f9a4d9ce0c~mv2.jpg" alt="Cerveja">
+      <img src="https://static.wixstatic.com/media/0e9397_1b0d13f56b5844f08120c04830327558~mv2.jpg/v1/fill/w_480,h_480,al_c,q_90,enc_avif,quality_auto/0e9397_1b0d13f56b5844f08120c04830327558~mv2.jpg" alt="Drinks">
+    </div>
+  </div>
+</section>
+
+<!-- VISITE -->
+<section id="visite" class="visit">
+  <div class="wrap visit-in">
+    <div>
+      <span class="kicker">Venha nos visitar</span>
+      <h2>No coração de Moinhos de Vento</h2>
+      <div class="rows">
+        <div class="row"><span>Endereço</span><p>Rua Dr. Timóteo, 465 — Moinhos de Vento, Porto Alegre / RS</p></div>
+        <div class="row"><span>Horário</span><p>Todos os dias · 11h30 às 15h30 e 18h às 23h</p></div>
+        <div class="row"><span>Delivery</span><p>10h30 às 14h30 e 18h às 22h · (51) 3222-3130</p></div>
+      </div>
+      <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn gold" href="https://wa.me/555132223130?text=Olá!%20Quero%20reservar%20uma%20mesa%20no%20Santo%20Antônio.">Reservar mesa</a>
+        <a class="btn ghost" href="https://www.ifood.com.br/delivery/porto-alegre-rs/restaurante-santo-antonio-moinhos-de-vento/dbb23a00-8bc0-47fb-969f-e0915676bc43">Pedir delivery</a>
+      </div>
+    </div>
+    <div class="map">
+      <iframe loading="lazy" src="https://www.google.com/maps?q=Rua%20Dr.%20Timoteo%2C%20465%20Porto%20Alegre&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final">
+  <div class="wrap">
+    <span class="kicker" style="color:var(--gold-lt)">Reserve sua mesa</span>
+    <h2>Prove a tradição que <em>fez história</em></h2>
+    <p>Noventa anos de churrasco, filés à colher e massas de família esperam por você em Moinhos de Vento.</p>
+    <a class="btn gold" href="https://wa.me/555132223130?text=Olá!%20Vim%20pelo%20site%20e%20quero%20reservar%20uma%20mesa%20no%20Santo%20Antônio.">Reservar pelo WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <div>
+      <div class="foot-brand">Santo Antônio<small>Churrascaria desde 1935</small></div>
+      <div class="foot-soc">
+        <a href="https://www.instagram.com/santoantoniorestaurante/" aria-label="Instagram">◎</a>
+        <a href="https://www.facebook.com/churrascariasantoantonio" aria-label="Facebook">f</a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <p style="color:#fff;font-weight:600;margin-bottom:10px">Contato</p>
+      <p>Rua Dr. Timóteo, 465 — Porto Alegre/RS</p>
+      <p>(51) 3222-3130 · WhatsApp</p>
+      <p>santoantoniosite@gmail.com</p>
+    </div>
+    <div class="foot-col">
+      <p style="color:#fff;font-weight:600;margin-bottom:10px">Horário</p>
+      <p>Todos os dias</p>
+      <p>11h30–15h30 · 18h–23h</p>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">© 2026 Restaurante e Churrascaria Santo Antônio · A primeira churrascaria do Brasil</div>
+</footer>
+
+<a class="float" href="https://wa.me/555132223130?text=Olá!%20Vim%20pelo%20site%20e%20quero%20reservar%20uma%20mesa%20no%20Santo%20Antônio.">💬 Reservar</a>
+
+</body>
+</html>
