@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VS Clinic — Medicina Integrativa em Porto Alegre e São Paulo</title>
+<meta name="description" content="VS Clinic: medicina funcional integrativa que trata a origem dos desequilíbrios. Consultas presenciais e telemedicina. Agende pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12211c; --ink-soft:#3d4b45; --paper:#f7f5ef; --paper-2:#efece2;
+    --green:#1f4d3f; --green-2:#2e6b57; --gold:#c8a24a; --line:#e2ddd0; --white:#fff;
+    --r:16px; --shadow:0 12px 40px rgba(18,33,28,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;line-height:1.12;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--green);color:#fff;font-weight:600;font-size:15px;padding:15px 26px;border-radius:999px;transition:.2s;border:1px solid var(--green)}
+  .btn:hover{background:var(--green-2);transform:translateY(-1px)}
+  .btn.gold{background:var(--gold);border-color:var(--gold);color:#241c05}
+  .btn.gold:hover{filter:brightness(1.06)}
+  .btn.ghost{background:transparent;color:var(--green);border-color:var(--line)}
+  .btn.ghost:hover{background:#fff}
+  .kicker{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--green-2);font-weight:600}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(247,245,239,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .nav img{height:38px;width:auto}
+  .nav-links{display:flex;gap:28px;font-size:14.5px;font-weight:500;color:var(--ink-soft)}
+  .nav-links a:hover{color:var(--green)}
+  .nav .btn{padding:11px 20px;font-size:14px}
+  @media(max-width:860px){.nav-links{display:none}}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;background:
+    radial-gradient(120% 90% at 85% -10%, #dfeae3 0%, transparent 55%),
+    linear-gradient(180deg,#f7f5ef 0%, #efece2 100%)}
+  .hero-in{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:76px 0 84px}
+  .hero h1{font-size:clamp(34px,5vw,58px)}
+  .hero h1 .em{font-style:italic;color:var(--green)}
+  .hero p.lead{font-size:19px;color:var(--ink-soft);margin:22px 0 30px;max-width:33ch}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-note{margin-top:16px;font-size:13.5px;color:var(--ink-soft);display:flex;align-items:center;gap:8px}
+  .dot{width:8px;height:8px;border-radius:50%;background:#3fae82;box-shadow:0 0 0 4px rgba(63,174,130,.18)}
+  .hero-media{position:relative}
+  .hero-media img{width:100%;border-radius:22px;box-shadow:var(--shadow);display:block}
+  .hero-media .m2{position:absolute;right:-10px;bottom:-26px;width:52%;border:6px solid var(--paper);border-radius:18px}
+  .badge{position:absolute;left:-14px;top:26px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 16px;box-shadow:var(--shadow);font-size:13px;font-weight:600;color:var(--green)}
+  .badge b{font-family:'Fraunces',serif;font-size:20px;display:block;color:var(--ink)}
+  @media(max-width:860px){.hero-in{grid-template-columns:1fr;gap:40px;padding:52px 0 64px}.hero-media .m2{display:none}}
+
+  /* STATS */
+  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--white)}
+  .stats-in{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:34px 0}
+  .stat{text-align:center;padding:8px}
+  .stat b{display:block;font-family:'Fraunces',serif;font-size:34px;color:var(--green);line-height:1}
+  .stat span{font-size:13px;color:var(--ink-soft);display:block;margin-top:8px}
+  @media(max-width:680px){.stats-in{grid-template-columns:repeat(2,1fr);gap:22px}}
+
+  /* SECTION base */
+  section{padding:84px 0}
+  .sec-head{max-width:640px;margin-bottom:44px}
+  .sec-head h2{font-size:clamp(26px,3.4vw,40px);margin:14px 0 0}
+  .sec-head p{color:var(--ink-soft);margin-top:14px;font-size:17px}
+
+  /* SERVIÇOS / rotas de agendamento */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px;transition:.2s;display:flex;flex-direction:column;gap:12px}
+  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#d5cdb8}
+  .card .ic{width:46px;height:46px;border-radius:12px;background:#e8efe9;display:grid;place-items:center;color:var(--green);font-size:22px}
+  .card h3{font-size:20px}
+  .card p{font-size:14.5px;color:var(--ink-soft)}
+  .card .go{margin-top:auto;font-weight:600;color:var(--green);font-size:14px;display:inline-flex;gap:6px;align-items:center}
+  @media(max-width:860px){.cards{grid-template-columns:1fr}}
+
+  /* TELEMEDICINA / faixa */
+  .band{background:linear-gradient(135deg,#1f4d3f,#123028);color:#eaf1ec;border-radius:26px;padding:52px;display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+  .band h2{color:#fff;font-size:clamp(24px,3vw,34px)}
+  .band p{color:#cdddd3;margin-top:14px;font-size:16px}
+  .band .side{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:24px}
+  .band .side ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .band .side li{display:flex;gap:11px;font-size:15px;color:#e7f0ea}
+  .band .side li i{color:var(--gold);font-style:normal}
+  @media(max-width:860px){.band{grid-template-columns:1fr;padding:36px}}
+
+  /* SOBRE / autoridade */
+  .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+  .about-media img{width:100%;border-radius:20px;box-shadow:var(--shadow)}
+  .about h2{font-size:clamp(24px,3.2vw,36px);margin:12px 0 0}
+  .about p{color:var(--ink-soft);margin-top:16px;font-size:16px}
+  .creds{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:13px;font-weight:500;color:var(--ink-soft)}
+  @media(max-width:860px){.about{grid-template-columns:1fr}}
+
+  /* VALORES */
+  .vals{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .val{background:var(--paper-2);border-radius:14px;padding:22px;font-size:15px;font-weight:500;display:flex;gap:12px;align-items:flex-start}
+  .val i{color:var(--gold);font-style:normal;font-size:18px;margin-top:1px}
+  @media(max-width:680px){.vals{grid-template-columns:1fr}}
+
+  /* CONTATO / unidades */
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .unit{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px}
+  .unit h3{font-size:19px;display:flex;align-items:center;gap:9px}
+  .unit .addr{color:var(--ink-soft);font-size:14.5px;margin-top:12px;line-height:1.7}
+  .unit iframe{width:100%;height:180px;border:0;border-radius:12px;margin-top:16px;filter:grayscale(.15)}
+  .info-row{display:flex;flex-wrap:wrap;gap:26px;margin-top:26px;padding-top:24px;border-top:1px solid var(--line)}
+  .info-row .it{font-size:14.5px}
+  .info-row .it span{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--green-2);font-weight:600;margin-bottom:4px}
+  @media(max-width:680px){.contact{grid-template-columns:1fr}}
+
+  /* CTA final */
+  .final{background:var(--white);border-top:1px solid var(--line)}
+  .final-in{text-align:center;max-width:620px;margin:0 auto}
+  .final h2{font-size:clamp(28px,4vw,44px)}
+  .final p{color:var(--ink-soft);font-size:18px;margin:16px 0 28px}
+
+  /* FOOTER */
+  footer{background:#12211c;color:#b9c6bf;padding:52px 0 30px;font-size:13.5px}
+  .foot-in{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+  footer img{height:34px;filter:brightness(0) invert(1);opacity:.9}
+  .foot-soc{display:flex;gap:14px;margin-top:16px}
+  .foot-soc a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;transition:.2s}
+  .foot-soc a:hover{background:var(--green-2)}
+  .foot-legal{max-width:440px;line-height:1.7;opacity:.7;font-size:12px}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:34px;padding-top:20px;opacity:.6;font-size:12px}
+
+  .float{position:fixed;right:20px;bottom:20px;z-index:60;background:#25d366;color:#fff;font-weight:600;padding:14px 20px;border-radius:999px;box-shadow:0 10px 30px rgba(37,211,102,.4);display:flex;gap:9px;align-items:center;font-size:15px}
+  .float:hover{transform:translateY(-2px)}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <img src="https://static.wixstatic.com/media/02af0a_2aa292f3f1d54d6d9a53e6d915ffa15e~mv2.png/v1/fill/w_232,h_45,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_vs_clinic_2_edited.png" alt="VS Clinic">
+    <nav class="nav-links">
+      <a href="#servicos">Atendimento</a>
+      <a href="#telemedicina">Telemedicina</a>
+      <a href="#sobre">A clínica</a>
+      <a href="#unidades">Unidades</a>
+    </nav>
+    <a class="btn" href="https://tintim.link/whatsapp/1fa313f6-1359-4e49-939b-49f583d2e7f0/1b3d528b-daf8-487e-8167-82de9bfbd8a8">Agendar consulta</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <span class="kicker">Medicina funcional integrativa</span>
+      <h1>Sua consulta agendada <span class="em">hoje</span>, o cuidado que trata a origem.</h1>
+      <p class="lead">Presencial em Porto Alegre e São Paulo, ou por telemedicina de onde você estiver. Resposta rápida pelo WhatsApp.</p>
+      <div class="hero-cta">
+        <a class="btn gold" href="https://tintim.link/whatsapp/1fa313f6-1359-4e49-939b-49f583d2e7f0/1b3d528b-daf8-487e-8167-82de9bfbd8a8">Agende já sua consulta</a>
+        <a class="btn ghost" href="#servicos">Como funciona</a>
+      </div>
+      <div class="hero-note"><span class="dot"></span> Atendimento instantâneo — seg. a sex., 8h30 às 18h</div>
+    </div>
+    <div class="hero-media">
+      <div class="badge">Experiência<b>+9 anos</b></div>
+      <img src="https://static.wixstatic.com/media/7cbc66_2a5164359d4446b1aa4498bc1e29e8c4~mv2.png/v1/fill/w_696,h_942,al_c,q_90,enc_avif,quality_auto/Frame%201316.png" alt="Ambiente da VS Clinic">
+      <img class="m2" src="https://static.wixstatic.com/media/7cbc66_26f530c1b4934032ac6869aeecf0416a~mv2.png/v1/fill/w_678,h_432,al_c,q_90,enc_avif,quality_auto/Frame%201317.png" alt="Ambiente da clínica">
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap stats-in">
+    <div class="stat"><b>+20.400</b><span>Atendimentos realizados</span></div>
+    <div class="stat"><b>+200</b><span>Pacientes por mês</span></div>
+    <div class="stat"><b>+37</b><span>Profissionais de saúde</span></div>
+    <div class="stat"><b>+9</b><span>Anos de experiência</span></div>
+  </div>
+</div>
+
+<!-- SERVIÇOS / rotas de agendamento -->
+<section id="servicos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Comece por aqui</span>
+      <h2>Escolha como quer ser atendido</h2>
+      <p>Cada caminho leva direto ao nosso WhatsApp, com a equipe pronta para agendar o seu horário.</p>
+    </div>
+    <div class="cards">
+      <a class="card" href="https://tintim.link/whatsapp/1fa313f6-1359-4e49-939b-49f583d2e7f0/1b3d528b-daf8-487e-8167-82de9bfbd8a8">
+        <div class="ic">🩺</div>
+        <h3>Consulta presencial</h3>
+        <p>Atendimento completo nas unidades de Porto Alegre e São Paulo, com equipe multidisciplinar.</p>
+        <span class="go">Agendar presencial →</span>
+      </a>
+      <a class="card" href="https://tintim.link/whatsapp/1fa313f6-1359-4e49-939b-49f583d2e7f0/1b3d528b-daf8-487e-8167-82de9bfbd8a8">
+        <div class="ic">💻</div>
+        <h3>Telemedicina</h3>
+        <p>Cuide da sua saúde de qualquer lugar, no conforto de casa, com a mesma qualidade do presencial.</p>
+        <span class="go">Consultar online →</span>
+      </a>
+      <a class="card" href="https://tintim.link/whatsapp/1fa313f6-1359-4e49-939b-49f583d2e7f0/1b3d528b-daf8-487e-8167-82de9bfbd8a8">
+        <div class="ic">🌿</div>
+        <h3>Cuidado integrativo</h3>
+        <p>Abordagem funcional que trata a origem dos desequilíbrios físicos, mentais e emocionais.</p>
+        <span class="go">Saber mais →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TELEMEDICINA -->
+<section id="telemedicina" style="padding-top:0">
+  <div class="wrap">
+    <div class="band">
+      <div>
+        <span class="kicker" style="color:var(--gold)">Atendimento on-line</span>
+        <h2>Telemedicina para cuidar da sua saúde de qualquer lugar</h2>
+        <p>A vida é corrida e nem sempre dá para comparecer pessoalmente. Nossa equipe de médicos e especialistas atende você onde estiver, garantindo o tratamento de que precisa — quando e onde for necessário.</p>
+        <div style="margin-top:26px"><a class="btn gold" href="https://tintim.link/whatsapp/1fa313f6-1359-4e49-939b-49f583d2e7f0/1b3d528b-daf8-487e-8167-82de9bfbd8a8">Agendar teleconsulta</a></div>
+      </div>
+      <div class="side">
+        <ul>
+          <li><i>✓</i> Sem sair de casa, no horário que cabe na sua rotina</li>
+          <li><i>✓</i> Mesma equipe multidisciplinar do atendimento presencial</li>
+          <li><i>✓</i> Acompanhamento contínuo e personalizado</li>
+          <li><i>✓</i> Atendimento em qualquer lugar do país</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE / autoridade -->
+<section id="sobre" style="padding-top:0">
+  <div class="wrap about">
+    <div class="about-media">
+      <img src="https://static.wixstatic.com/media/02af0a_3cea3dc4897640f3aabd42c0b6244284~mv2.jpg/v1/crop/x_612,y_535,w_4656,h_3342/fill/w_900,h_646,al_c,q_85,enc_avif,quality_auto/VCF_8297x.jpg" alt="Equipe VS Clinic">
+    </div>
+    <div>
+      <span class="kicker">Quem cuida de você</span>
+      <h2>Medicina de excelência, com escuta genuína</h2>
+      <p>Somos uma clínica de medicina funcional integrativa que trata o paciente de forma integral — considerando aspectos físicos, psicológicos e genéticos. Nosso compromisso é tratar a origem dos desequilíbrios, promovendo saúde e qualidade de vida de forma preventiva.</p>
+      <p>Sob responsabilidade do <b>Dr. Victor Sorrentino</b> (CRM 28606), médico e doutorando em Neurociências, reconhecido por sua comunicação clara e por tratar o paciente como um todo — não apenas sintomas isolados.</p>
+      <div class="creds">
+        <span class="chip">Equipe multidisciplinar</span>
+        <span class="chip">Medicina funcional</span>
+        <span class="chip">Doutorando em Neurociências</span>
+        <span class="chip">+37 profissionais</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">No que acreditamos</span><h2>Um cuidado que atravessa o tempo</h2></div>
+    <div class="vals">
+      <div class="val"><i>◆</i> Humanidade antes de tudo</div>
+      <div class="val"><i>◆</i> Excelência clínica com propósito</div>
+      <div class="val"><i>◆</i> Individualidade biológica</div>
+      <div class="val"><i>◆</i> Tecnologia a serviço da vida</div>
+      <div class="val"><i>◆</i> Ética, verdade e responsabilidade</div>
+      <div class="val"><i>◆</i> Cuidado que atravessa o tempo</div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIDADES / CONTATO -->
+<section id="unidades" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><span class="kicker">Onde estamos</span><h2>Duas unidades para receber você</h2></div>
+    <div class="contact">
+      <div class="unit">
+        <h3>📍 Porto Alegre</h3>
+        <div class="addr">Rua João Berutti, 515<br>Chácara das Pedras — Porto Alegre / RS<br>CEP 91330-370</div>
+        <iframe loading="lazy" src="https://www.google.com/maps?q=Rua%20João%20Berutti%2C%20515%20Porto%20Alegre%20RS&output=embed"></iframe>
+      </div>
+      <div class="unit">
+        <h3>📍 São Paulo</h3>
+        <div class="addr">Av. Magalhães de Castro, 4800<br>Torre 2 — Edifício Park Tower, 13º andar, Cj. 131<br>Cidade Jardim — São Paulo / SP · CEP 05676-120</div>
+        <iframe loading="lazy" src="https://www.google.com/maps?q=Av.%20Magalhaes%20de%20Castro%2C%204800%20Sao%20Paulo&output=embed"></iframe>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="it"><span>WhatsApp</span>(51) 99775-4047</div>
+      <div class="it"><span>Horários</span>Seg. a sex., 8h30 às 18h</div>
+      <div class="it"><span>Trabalhe conosco</span>rh@vsclinic.com.br</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final">
+  <div class="wrap final-in">
+    <span class="kicker">Comece sua jornada</span>
+    <h2>Sua saúde merece um cuidado que vai à raiz</h2>
+    <p>Agende sua consulta e dê o primeiro passo para uma vida mais saudável e plena.</p>
+    <a class="btn gold" href="https://tintim.link/whatsapp/1fa313f6-1359-4e49-939b-49f583d2e7f0/1b3d528b-daf8-487e-8167-82de9bfbd8a8">Agende sua consulta pelo WhatsApp</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-in">
+    <div>
+      <img src="https://static.wixstatic.com/media/02af0a_2aa292f3f1d54d6d9a53e6d915ffa15e~mv2.png/v1/fill/w_232,h_45,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_vs_clinic_2_edited.png" alt="VS Clinic">
+      <div class="foot-soc">
+        <a href="https://www.instagram.com/vsclinic.medicina/" aria-label="Instagram">◎</a>
+        <a href="https://www.facebook.com/vsclinic.medicina" aria-label="Facebook">f</a>
+        <a href="https://www.linkedin.com/company/vs-clinic-medicina/" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+    <div class="foot-legal">
+      Responsável Técnico: Dra. Mariana P. Uebel — CRM-RS 26.829.<br>
+      CRM 13398-RS · 1028623-SP · CNPJ 22.266.868/0002-51 — Victor Sorrentino Atividade Médica LTDA.
+    </div>
+  </div>
+  <div class="wrap foot-bottom">© 2024 VS Clinic. Todos os direitos reservados.</div>
+</footer>
+
+<a class="float" href="https://tintim.link/whatsapp/1fa313f6-1359-4e49-939b-49f583d2e7f0/1b3d528b-daf8-487e-8167-82de9bfbd8a8">💬 Agendar</a>
+
+</body>
+</html>
